@@ -187,14 +187,46 @@ namespace pxd
 				3
 			)
 		);
+
+		testManager.AddTest(
+			baseName,
+			"Cross Test Two Vectors",
+			CompareVectors(
+				Cross(testVector, testVector).v_ptr,
+				Vector3D(testVector.y * testVector.z - testVector.z * testVector.y,
+					testVector.z * testVector.x - testVector.x * testVector.z,
+					testVector.x * testVector.y - testVector.y * testVector.x).v_ptr,
+				3
+			)
+		);
 	}
 
 	void Vector3DTests::MagnitudeTests(TestManager& testManager)
 	{
+		testManager.AddTest(
+			baseName,
+			"Magnitude Basis Axis",
+			Vector3D(1.0, 0.0, 0.0).Magnitude() == 1.0
+		);
+
+		testManager.AddTest(
+			baseName,
+			"Magnitude Vector",
+			testVector.Magnitude() == 3.7416573867739413855837487323165
+		);
 	}
 
 	void Vector3DTests::NormalizeTests(TestManager& testManager)
 	{
+		testManager.AddTest(
+			baseName,
+			"Normalize Basis Axis",
+			CompareVectors(
+				Vector3D(1.0, 0.0, 0.0).v_ptr,
+				Vector3D(1.0, 0.0, 0.0).v_ptr,
+				3
+			)
+		);
 	}
 
 	void Vector3DTests::ProjectRejectTests(TestManager& testManager)

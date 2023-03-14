@@ -6,6 +6,7 @@
 ## Ongoing
 
 - [ ] Vector3D tests
+- [ ] Vector2D tests
 
 ## Done
 
